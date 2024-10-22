@@ -5,3 +5,10 @@
     </NuxtLink>
   </main>
 </template>
+
+<script setup>
+useSeoMeta({
+  title: 'ikakprosto.ru',
+  description: 'Фронтендер в Сасфликс',
+});
+</script>
