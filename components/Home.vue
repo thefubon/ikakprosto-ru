@@ -71,8 +71,4 @@ onMounted(() => {
   background-color: #e0e0e0;
   border-radius: 4px;
 }
-
-.post-container {
-  /* Additional styles for the post container if needed */
-}
 </style>
