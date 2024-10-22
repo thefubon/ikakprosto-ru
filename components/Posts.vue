@@ -19,7 +19,7 @@
       </div>
       <div v-else class="space-y-8">
         <div v-for="post in filteredPosts" :key="post.id" class="post space-y-6">
-          <NuxtLink :to="`/posts/${generateSlug(post)}`">
+          <NuxtLink :to="`/posts/${generateSlug(post)}`" class="space-y-4">
             <h2 class="headline">{{ post.title }}</h2>
             <p class="text">{{ post.body }}</p>
           </NuxtLink>

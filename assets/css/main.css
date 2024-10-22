@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .headline {
-  @apply text-[28px] font-bold tracking-[-1.45px]
+  @apply text-[28px] font-bold tracking-[-1.45px] leading-[28px]
 }
 
 .text {
