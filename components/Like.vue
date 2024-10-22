@@ -80,11 +80,11 @@ button {
 }
 
 .like {
-  @apply bg-muted rounded-l-full py-0.5 px-2 m-0 inline-flex items-center gap-2;
+  @apply bg-muted rounded-l-full h-7 px-2 m-0 inline-flex items-center gap-2;
 }
 
 .dislike {
-  @apply bg-muted rounded-r-full py-0.5 px-2 m-0 inline-flex items-center gap-2;
+  @apply bg-muted rounded-r-full h-7 px-2 m-0 inline-flex items-center gap-2;
 }
 
 .activeLike {
