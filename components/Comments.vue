@@ -1,6 +1,6 @@
 <template>
   <div class="comments">
-    <h2>Комментарии</h2>
+    <h2>Комментарии ({{ commentsData?.comments.length || 0 }})</h2>
     <div v-if="error" class="error">
       {{ error.message }}
     </div>
@@ -9,8 +9,12 @@
     </div>
     <div v-else>
       <ul>
-        <li v-for="comment in commentsData.comments" :key="comment.id">
-          <p><strong>{{ comment.user.username }}</strong>: {{ comment.body }}</p>
+        <li v-for="comment in commentsData.comments" :key="comment.id" class="comment-item">
+          <img :src="comment.user.avatar || '/default-avatar.png'" alt="User Avatar" class="avatar">
+          <div>
+            <strong>{{ comment.user.username }}</strong>
+            <p>{{ comment.body }}</p>
+          </div>
         </li>
       </ul>
     </div>
@@ -50,10 +54,30 @@ ul {
 }
 
 li {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 strong {
   color: #333;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Add class for comment item to align avatar and text properly */
+.comment-item {
+  display: flex;
+  align-items: center;
+}
+
+.comment-item>div {
+  max-width: calc(100% - 50px);
+  /* Adjust comment text layout */
 }
 </style>
