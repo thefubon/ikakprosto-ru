@@ -7,13 +7,13 @@
     <button @click="toggleDislike" class="dislike" :class="{ activeDislike: userVote === 'dislike' }">
       <img :src="userVote === 'dislike' ? '/icons/dislike.svg' : '/icons/dislike-stroke.svg'" alt="Dislike Icon"
         class="dislike-icon">
-      <span class="caption">Trach</span> <span class="dislikeNumber">{{ dislikes }}</span>
+      <span class="caption">Dislike</span> <span class="dislikeNumber">{{ dislikes }}</span>
     </button>
   </div>
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 
 const props = defineProps({
   postId: Number
@@ -23,21 +23,24 @@ const likes = ref(0)
 const dislikes = ref(0)
 const userVote = ref(null) // null, 'like', 'dislike'
 
-const LOCAL_STORAGE_KEY = `post-${props.postId}`
+const LOCAL_STORAGE_LIKES_KEY = `post-${props.postId}-likes`
+const LOCAL_STORAGE_DISLIKES_KEY = `post-${props.postId}-dislikes`
+const LOCAL_STORAGE_USER_VOTE_KEY = `post-${props.postId}-vote`
 
 const loadFromLocalStorage = () => {
-  const storedData = localStorage.getItem(LOCAL_STORAGE_KEY)
-  if (storedData) {
-    const { likes: storedLikes, dislikes: storedDislikes, userVote: storedVote } = JSON.parse(storedData)
-    likes.value = storedLikes
-    dislikes.value = storedDislikes
-    userVote.value = storedVote
-  }
+  const storedLikes = localStorage.getItem(LOCAL_STORAGE_LIKES_KEY)
+  const storedDislikes = localStorage.getItem(LOCAL_STORAGE_DISLIKES_KEY)
+  const storedVote = localStorage.getItem(LOCAL_STORAGE_USER_VOTE_KEY)
+
+  likes.value = storedLikes ? parseInt(storedLikes) : 0
+  dislikes.value = storedDislikes ? parseInt(storedDislikes) : 0
+  userVote.value = storedVote ? storedVote : null
 }
 
 const saveToLocalStorage = () => {
-  const dataToStore = JSON.stringify({ likes: likes.value, dislikes: dislikes.value, userVote: userVote.value })
-  localStorage.setItem(LOCAL_STORAGE_KEY, dataToStore)
+  localStorage.setItem(LOCAL_STORAGE_LIKES_KEY, likes.value)
+  localStorage.setItem(LOCAL_STORAGE_DISLIKES_KEY, dislikes.value)
+  localStorage.setItem(LOCAL_STORAGE_USER_VOTE_KEY, userVote.value)
 }
 
 const toggleLike = () => {
@@ -51,6 +54,7 @@ const toggleLike = () => {
     likes.value += 1
     userVote.value = 'like'
   }
+  saveToLocalStorage()
 }
 
 const toggleDislike = () => {
@@ -64,9 +68,8 @@ const toggleDislike = () => {
     dislikes.value += 1
     userVote.value = 'dislike'
   }
+  saveToLocalStorage()
 }
-
-watch([likes, dislikes, userVote], saveToLocalStorage)
 
 loadFromLocalStorage()
 </script>
@@ -77,34 +80,34 @@ button {
 }
 
 .like {
-  @apply bg-muted rounded-l-full py-0.5 px-2 m-0 inline-flex items-center gap-2
+  @apply bg-muted rounded-l-full py-0.5 px-2 m-0 inline-flex items-center gap-2;
 }
 
 .dislike {
-  @apply bg-muted rounded-r-full py-0.5 px-2 m-0 inline-flex items-center gap-2
+  @apply bg-muted rounded-r-full py-0.5 px-2 m-0 inline-flex items-center gap-2;
 }
 
 .activeLike {
-  @apply bg-red-500 text-white
+  @apply bg-red-500 text-white;
 }
 
 .activeDislike {
-  @apply bg-black text-white
+  @apply bg-black text-white;
 }
 
 .likeNumber {
-  @apply text-[#040405]/30 text-sm
+  @apply text-[#040405]/30 text-sm;
 }
 
 .activeLike>.likeNumber {
-  @apply text-white/95 text-sm
+  @apply text-white/95 text-sm;
 }
 
 .activeDislike>.likeNumber {
-  @apply text-white/30 text-sm
+  @apply text-white/30 text-sm;
 }
 
 .caption {
-  @apply tracking-[-0.08px] text-sm
+  @apply tracking-[-0.08px] text-sm;
 }
 </style>
