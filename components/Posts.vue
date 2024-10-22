@@ -24,7 +24,7 @@
             <p class="text">{{ post.body }}</p>
           </NuxtLink>
 
-          <div class="inline-flex flex-col sm:flex-row gap-4">
+          <div class="inline-flex flex-col md:flex-row gap-4">
             <div class="flex gap-2">
               <Like :post-id="post.id" />
               <button @click="toggleComments(post.id)" class="text-primary text-sm underline">
@@ -32,7 +32,7 @@
               </button>
             </div>
 
-            <div class="inline-flex gap-2">
+            <div class="flex gap-2">
               <p class="text-black/20">Today</p>
               <div class="tags-container">
                 <span v-for="tag in post.tags" :key="tag" class="bg-slate-100 rounded-md py-0.5 px-2 cursor-pointer"
