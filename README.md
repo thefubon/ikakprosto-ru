@@ -1,75 +1,18 @@
-# Nuxt Minimal Starter
+# Фронтендер в Сасфликс
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Ищем ответственного фронтендера, чтобы работать в команде и создавать крутой продукт
 
-## Setup
+## Тестовое задание
 
-Make sure to install dependencies:
+Реализовать приложение с общим списком постов и отдельными страницами с комментариями. Код на Nuxt3/Vue3, TypeScript и Pinia, и разбит на компоненты.
 
-```bash
-# npm
-npm install
+### Приложения должно:
 
-# pnpm
-pnpm install
+- повторять макет в Фигме;
+- выводить первые 5 постов из API на общей странице;
+- быть написано без использования готовых библиотек компонентов;
+- иметь кликабельные кнопки лайка и дизлайка;
+- удалять комментарии, изменять значении и стили кнопок локально.
+- Ведите историю коммитов с начала разработки, загрузите приложение в ГитЛаб или ГитХаб, и выдайте общий доступ.
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+[Макет в Фигме ](https://jobs.sasflix.ru/frontender/App-Template.fig)
