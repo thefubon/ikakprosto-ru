@@ -20,16 +20,18 @@
         <div class="inline-flex flex-col sm:flex-row gap-2">
           <div class="flex gap-2">
             <Like :post-id="post.id" />
-            <!-- <span v-if="commentsCount[post.id] !== undefined">
-            ({{ commentsCount[post.id] }} комментариев)
-          </span> -->
             <button @click="toggleComments(post.id)" class="text-primary text-sm underline">
               {{ post.showComments ? 'Close comments' : 'Open comments' }}
             </button>
           </div>
 
           <div class="inline-flex gap-2">
-            <p>Today: {{ post.tags.join(', ') }}</p>
+            <p class="text-black/20">Today</p>
+            <div class="tags-container">
+              <span v-for="tag in post.tags" :key="tag" class="bg-slate-100 rounded-md py-0.5 px-2">
+                {{ tag }}
+              </span>
+            </div>
           </div>
         </div>
 
@@ -38,8 +40,9 @@
         </div>
       </div>
       <button v-if="canLoadMore" @click="loadMorePosts"
-        class="border border-primary text-primary p-2 w-full rounded-lg">Load
-        More</button>
+        class="border border-primary text-primary p-2 w-full rounded-lg">
+        Load More
+      </button>
     </div>
   </div>
 </template>
@@ -149,5 +152,21 @@ const toggleComments = (postId) => {
   height: 14px;
   background-color: #e0e0e0;
   border-radius: 4px;
+}
+
+.tags-container {
+  display: flex;
+  gap: 5px;
+}
+
+.tag {
+  background-color: #e0e0e0;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.tag:not(:last-child) {
+  margin-right: 5px;
 }
 </style>
