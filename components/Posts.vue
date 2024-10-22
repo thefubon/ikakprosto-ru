@@ -17,7 +17,7 @@
           <p class="text">{{ post.body }}</p>
         </NuxtLink>
 
-        <div class="inline-flex flex-col sm:flex-row gap-2">
+        <div class="inline-flex flex-col sm:flex-row gap-4">
           <div class="flex gap-2">
             <Like :post-id="post.id" />
             <button @click="toggleComments(post.id)" class="text-primary text-sm underline">
