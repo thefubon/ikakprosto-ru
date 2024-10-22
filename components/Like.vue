@@ -99,11 +99,15 @@ button {
   @apply text-[#040405]/30 text-sm;
 }
 
+.dislikeNumber {
+  @apply text-[#040405]/30 text-sm;
+}
+
 .activeLike>.likeNumber {
   @apply text-white/95 text-sm;
 }
 
-.activeDislike>.likeNumber {
+.activeDislike>.dislikeNumber {
   @apply text-white/30 text-sm;
 }
 
