@@ -1,12 +1,13 @@
 <template>
   <div class="space-x-[1px]">
     <button @click="toggleLike" class="like" :class="{ activeLike: userVote === 'like' }">
-      <img :src="userVote === 'like' ? '/icons/like.svg' : '/icons/like-stroke.svg'" alt="Like Icon" class="like-icon">
+      <img :src="userVote === 'like' ? '/icons/like.svg' : '/icons/like-stroke.svg'" alt="" width="13" height="11"
+        class="like-icon">
       <span class="caption">Like</span> <span class="likeNumber">{{ likes }}</span>
     </button>
     <button @click="toggleDislike" class="dislike" :class="{ activeDislike: userVote === 'dislike' }">
-      <img :src="userVote === 'dislike' ? '/icons/dislike.svg' : '/icons/dislike-stroke.svg'" alt="Dislike Icon"
-        class="dislike-icon">
+      <img :src="userVote === 'dislike' ? '/icons/dislike.svg' : '/icons/dislike-stroke.svg'" width="13" height="11"
+        alt="" class="dislike-icon">
       <span class="caption">Dislike</span> <span class="dislikeNumber">{{ dislikes }}</span>
     </button>
   </div>
