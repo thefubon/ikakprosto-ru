@@ -35,9 +35,11 @@
             <div class="flex gap-2">
               <p class="text-black/20">Today</p>
               <div class="tags-container">
-                <span v-for="tag in post.tags" :key="tag" class="bg-slate-100 rounded-md py-0.5 px-2 cursor-pointer"
+                <span v-for="tag in post.tags" :key="tag"
+                  :class="['bg-slate-100', 'rounded-md', 'py-0.5', 'px-2', 'cursor-pointer', { 'selected': activeTags.includes(tag) }]"
                   @click="toggleTagFilter(tag)">
                   {{ tag }}
+                  <span v-if="activeTags.includes(tag)" class="ml-1 text-red-500">×</span>
                 </span>
               </div>
             </div>
@@ -177,22 +179,21 @@ const toggleComments = (postId) => {
   width: 80%;
   height: 24px;
   border-radius: 4px;
-  @apply bg-muted
+  background-color: #e0e0e0;
 }
 
 .skeleton-body {
   width: 100%;
   height: 14px;
   border-radius: 4px;
-  @apply bg-muted
+  background-color: #e0e0e0;
 }
 
 .skeleton-tags {
   width: 60%;
   height: 14px;
   border-radius: 4px;
-
-  @apply bg-muted
+  background-color: #e0e0e0;
 }
 
 .tags-container {
@@ -206,10 +207,11 @@ const toggleComments = (postId) => {
   border-radius: 4px;
   font-size: 0.875rem;
   cursor: pointer;
+  position: relative;
 }
 
-.tag:hover {
-  background-color: #d1d1d1;
+.tag.selected {
+  background-color: #c1d9ff;
 }
 
 .reset-button {
