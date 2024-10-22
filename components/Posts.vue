@@ -6,8 +6,8 @@
     <div v-else>
       <div v-if="activeTags.length"
         class="filter-header mb-4 sticky top-[60px] py-2 bg-white flex items-center justify-center">
-        <span>Фильтр: {{ activeTags.join(', ') }}</span>
-        <button @click="resetTagFilter" class="reset-button">Сбросить фильтр</button>
+        <span>Filter: {{ activeTags.join(', ') }}</span>
+        <button @click="resetTagFilter" class="reset-button">Reset filter</button>
       </div>
 
       <div v-if="!filteredPosts.length" class="skeleton-container">
