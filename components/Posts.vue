@@ -11,7 +11,7 @@
       </div>
 
       <div v-if="!filteredPosts.length" class="skeleton-container">
-        <div class="skeleton" v-for="n in 5" :key="n">
+        <div class="skeleton" v-for="n in 10" :key="n">
           <div class="skeleton-title"></div>
           <div class="skeleton-body"></div>
           <div class="skeleton-tags"></div>
@@ -163,12 +163,10 @@ const toggleComments = (postId) => {
 .skeleton-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 }
 
 .skeleton {
-  background-color: #f0f0f0;
-  padding: 20px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -178,22 +176,23 @@ const toggleComments = (postId) => {
 .skeleton-title {
   width: 80%;
   height: 24px;
-  background-color: #e0e0e0;
   border-radius: 4px;
+  @apply bg-muted
 }
 
 .skeleton-body {
   width: 100%;
   height: 14px;
-  background-color: #e0e0e0;
   border-radius: 4px;
+  @apply bg-muted
 }
 
 .skeleton-tags {
   width: 60%;
   height: 14px;
-  background-color: #e0e0e0;
   border-radius: 4px;
+
+  @apply bg-muted
 }
 
 .tags-container {
