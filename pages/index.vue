@@ -6,7 +6,7 @@
 
     <Home />
 
-    <NuxtLink class="w-full bg-primary text-white py-2 px-4 inline-flex justify-center items-center rounded-lg"
+    <NuxtLink class="w-full bg-primary text-white py-3 px-4 inline-flex text-xl justify-center items-center rounded-lg"
       to="/posts">
       All Posts
     </NuxtLink>
