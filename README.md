@@ -32,3 +32,4 @@ DEMO: https://ikakprosto.fubon.ru
 - [ ] CMS, Admin (Backand, Frontend)
 - [ ] Posts, Comments, Like (Backand, Frontend)
 - [ ] Video Playlist (Backand, Frontend)
+- [ ] Buy Pass Content (Backand, Frontend)
