@@ -1,12 +1,16 @@
 <template>
   <div class="comments">
-    <h2>Comments ({{ visibleComments.length || 0 }})</h2>
+    <h3 class="text-[28px] font-bold my-6">{{ visibleComments.length }} {{ getCommentWord(visibleComments.length) }}
+    </h3>
+
     <div v-if="error" class="error">
       {{ error.message }}
     </div>
+
     <div v-else-if="loading" class="loading">
-      Loading Comments...
+      Загрузка комментариев...
     </div>
+
     <div v-else>
       <ul>
         <li v-for="comment in visibleComments" :key="comment.id" class="comment-item">
@@ -14,11 +18,12 @@
           <div>
             <strong>{{ comment.user.username }}</strong>
             <p>{{ comment.body }}</p>
-            <button @click="hideComment(comment.id)" class="delete-button">Delete</button>
+            <button @click="hideComment(comment.id)" class="delete-button">Скрыть</button>
           </div>
         </li>
       </ul>
-      <button v-if="hiddenComments.length" @click="restoreComments" class="restore-button">Restore All comments</button>
+      <button v-if="hiddenComments.length" @click="restoreComments" class="restore-button">Восстановить все
+        комментарии</button>
     </div>
   </div>
 </template>
@@ -53,12 +58,10 @@ const fetchComments = async () => {
 }
 
 onMounted(() => {
-  // Загружаем скрытые комментарии только на клиентской стороне
   if (typeof window !== "undefined") {
     const storedHiddenComments = localStorage.getItem(`hiddenComments-${props.postId}`)
     hiddenComments.value = storedHiddenComments ? JSON.parse(storedHiddenComments) : []
   }
-  // Загружаем данные
   fetchComments()
 })
 
@@ -74,6 +77,16 @@ const hideComment = (commentId) => {
 const restoreComments = () => {
   hiddenComments.value = []
   localStorage.removeItem(`hiddenComments-${props.postId}`)
+}
+
+const getCommentWord = (count) => {
+  if (count % 10 === 1 && count % 100 !== 11) {
+    return 'комментарий'
+  } else if ([2, 3, 4].includes(count % 10) && ![12, 13, 14].includes(count % 100)) {
+    return 'комментария'
+  } else {
+    return 'комментариев'
+  }
 }
 </script>
 
@@ -96,9 +109,11 @@ strong {
 }
 
 .avatar {
-  width: 40px;
-  height: 40px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
+
+  @apply border-2 border-black
 }
 
 .comment-item>div {
