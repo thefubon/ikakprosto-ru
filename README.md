@@ -23,3 +23,7 @@ DEMO: https://ikakprosto.fubon.ru
 - Добавлена фильрация постов по тегам
 
 [Макет в Фигме ](https://jobs.sasflix.ru/frontender/App-Template.fig)
+
+### Дорожная карта
+
+[x] Base (localStorage)
