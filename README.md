@@ -28,7 +28,7 @@ DEMO: https://ikakprosto.fubon.ru
 
 - [x] Demo (Frontend), localStorage
 - [ ] Site (Frontend)
-- [ ] Auth (Prisma, PostgreSQL)
+- [ ] Auth (Prisma, PostgreSQL, Secure, Token)
 - [ ] CMS, Admin (Backand, Frontend)
 - [ ] Posts, Comments, Like (Backand, Frontend)
 - [ ] Video Playlist (Backand, Frontend)
