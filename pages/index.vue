@@ -10,6 +10,10 @@
       to="/posts">
       All Posts
     </NuxtLink>
+
+    <div class="pt-4">
+      <Playlist />
+    </div>
   </main>
 </template>
 
