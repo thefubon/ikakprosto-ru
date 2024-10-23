@@ -27,7 +27,7 @@ DEMO: https://ikakprosto.fubon.ru
 ### Дорожная карта
 
 - [x] Demo (Frontend), localStorage
-- [ ] Site (Frontend, Tailwind, NuxtUI)
+- [ ] Site (Frontend, TailwindCSS, NuxtUI)
 - [ ] Auth (Prisma, PostgreSQL, Secure, Token)
 - [ ] CMS, Dashboard (Backand, Frontend)
 - [ ] Pages, Posts, Comments, Like (Backand, Frontend)
