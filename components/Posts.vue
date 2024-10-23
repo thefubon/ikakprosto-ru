@@ -129,7 +129,7 @@ onMounted(() => {
   fetchPosts()
   postsLoaded.value = POSTS_BATCH_SIZE
 
-  // Initialize based on route query
+  // Инициализация на основе запроса маршрута
   const initialTags = route.query['tags-name']
   if (initialTags) {
     activeTags.value = initialTags.split(',')

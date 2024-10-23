@@ -3,14 +3,16 @@
     {{ error.message }}
   </div>
   <div v-else-if="!data" class="loading">
-    Загрузка...
+    Loading...
   </div>
   <div v-else>
-    <h1>{{ data.title }}</h1>
-    <p>{{ data.body }}</p>
-    <p>Tags: {{ data.tags.join(', ') }}</p>
+    <div class="space-y-4">
+      <h1 class="headline">{{ data.title }}</h1>
+      <p class="text">{{ data.body }}</p>
+    </div>
+    <!-- <p>Tags: {{ data.tags.join(', ') }}</p>
     <p>Likes: {{ data.reactions.likes }}, Dislikes: {{ data.reactions.dislikes }}</p>
-    <p>Views: {{ data.views }}</p>
+    <p>Views: {{ data.views }}</p> -->
 
     <!-- Включаем компонент Comments, передавая postId -->
     <Comments :postId="postId" />
@@ -28,8 +30,6 @@ const slugParts = route.params.slug.split('-')
 const postId = +slugParts[slugParts.length - 1]
 
 const { data, error } = await useFetch(`https://dummyjson.com/posts/${postId}`)
-
-// Передаем postId в компонент Comments
 </script>
 
 <style scoped>
