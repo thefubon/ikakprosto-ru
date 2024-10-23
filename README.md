@@ -35,4 +35,4 @@ DEMO: https://ikakprosto.fubon.ru
 - [ ] Buy Pass Content (Backand, Frontend)
 - [ ] PWA (Frontend)
 
-&copy; Sasflix (ikakprosto.ru Demo) 22.10.2024 by Fubon
+&copy; Sasflix (ikakprosto Demo) 22.10.2024 by Fubon
