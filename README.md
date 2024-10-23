@@ -24,7 +24,7 @@ DEMO: https://ikakprosto.fubon.ru
 
 [Макет в Фигме ](https://jobs.sasflix.ru/frontender/App-Template.fig)
 
-### Дорожная карта (branches/tags)
+### Дорожная карта (Branches)
 
 - [x] Demo (Frontend), localStorage
 - [ ] Site (Frontend, TailwindCSS, NuxtUI)
