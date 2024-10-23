@@ -1,6 +1,6 @@
 # Сасфликс
 
-https://ikakprosto.fubon.ru
+DEMO: https://ikakprosto.fubon.ru
 
 ### Описание
 
