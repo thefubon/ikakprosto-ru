@@ -26,4 +26,7 @@ DEMO: https://ikakprosto.fubon.ru
 
 ### Дорожная карта
 
-- [x] Base (localStorage)
+- [x] Site (Frontend), localStorage
+- [ ] Auth (Prisma, PostgreSQL)
+- [ ] CMS (Backand)
+- [ ] Posts, Comments (Backand, Frontend)
