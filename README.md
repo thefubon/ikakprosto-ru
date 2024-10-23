@@ -31,6 +31,6 @@ DEMO: https://ikakprosto.fubon.ru
 - [ ] Auth (Prisma, PostgreSQL, Secure, Token)
 - [ ] CMS, Dashboard (Backand, Frontend)
 - [ ] Pages, Posts, Comments, Like (Backand, Frontend)
-- [ ] Video Playlist (Backand, Frontend)
+- [ ] Video Playlist (Backand, API Sasflix, Frontend)
 - [ ] Buy Pass Content (Backand, Frontend)
 - [ ] PWA (Frontend)
