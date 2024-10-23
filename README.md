@@ -33,3 +33,4 @@ DEMO: https://ikakprosto.fubon.ru
 - [ ] Pages, Posts, Comments, Like (Backand, Frontend)
 - [ ] Video Playlist (Backand, Frontend)
 - [ ] Buy Pass Content (Backand, Frontend)
+- [ ] PWA (Frontend)
