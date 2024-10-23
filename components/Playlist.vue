@@ -1,6 +1,6 @@
 <template>
-  <div class="space-y-6">
-    <h2 class="text-2xl font-bold text-primary">Плейлист</h2>
+  <div class="space-y-4">
+    <h2 class="text-2xl font-bold text-primary uppercase">Sasflix Playlist</h2>
     <div class="grid md:grid-cols-2 gap-8 md:gap-4">
       <div v-for="(item, index) in images" :key="index" class="relative rounded-md overflow-hidden">
         <template v-if="item.url && item.url !== '#'">
