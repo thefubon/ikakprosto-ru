@@ -54,7 +54,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import Like from '~/components/Like.vue'
 import Comments from '~/components/Comments.vue'
-import Tags from '~/components/Tags.vue' // Импортируем Tags
+import Tags from '~/components/Tags.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -63,6 +63,10 @@ const posts = ref([])
 const error = ref(null)
 const commentsCount = ref({})
 const activeTags = ref([])
+
+const INITIAL_POSTS_COUNT = 5
+const POSTS_BATCH_SIZE = 10
+const postsLoaded = ref(INITIAL_POSTS_COUNT)
 
 // Функция для извлечения тегов из URL-параметра
 const initializeTagsFromQuery = () => {
@@ -121,12 +125,8 @@ const filteredPosts = computed(() => {
   )
 })
 
-const POSTS_BATCH_SIZE = 5
-const postsLoaded = ref(0)
-
 onMounted(() => {
   fetchPosts()
-  postsLoaded.value = POSTS_BATCH_SIZE
   initializeTagsFromQuery()
 })
 
