@@ -70,8 +70,15 @@ const router = useRouter()
 const posts = ref([])
 const error = ref(null)
 const commentsCount = ref({})
-
 const activeTags = ref([])
+
+// Функция для извлечения тегов из URL-параметра
+const initializeTagsFromQuery = () => {
+  const initialTags = route.query.tags
+  if (initialTags) {
+    activeTags.value = initialTags.split(',')
+  }
+}
 
 const fetchPosts = async () => {
   try {
@@ -111,7 +118,7 @@ const resetTagFilter = () => {
 }
 
 const updateUrl = () => {
-  const query = activeTags.value.length ? { 'tags': activeTags.value.join(',') } : {}
+  const query = activeTags.value.length ? { tags: activeTags.value.join(',') } : {}
   router.push({ path: route.path, query })
 }
 
@@ -128,12 +135,7 @@ const postsLoaded = ref(0)
 onMounted(() => {
   fetchPosts()
   postsLoaded.value = POSTS_BATCH_SIZE
-
-  // Инициализация на основе запроса маршрута
-  const initialTags = route.query['tags-name']
-  if (initialTags) {
-    activeTags.value = initialTags.split(',')
-  }
+  initializeTagsFromQuery()  // Убедимся, что это вызывается
 })
 
 const generateSlug = (post) => {
