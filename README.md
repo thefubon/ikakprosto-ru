@@ -28,5 +28,5 @@ DEMO: https://ikakprosto.fubon.ru
 
 - [x] Site (Frontend), localStorage
 - [ ] Auth (Prisma, PostgreSQL)
-- [ ] CMS (Backand)
+- [ ] CMS, Admin (Backand)
 - [ ] Posts, Comments (Backand, Frontend)
