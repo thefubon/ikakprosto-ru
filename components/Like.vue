@@ -14,15 +14,17 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const props = defineProps({
-  postId: Number
+  postId: Number,
+  initialLikes: Number,
+  initialDislikes: Number
 })
 
-const likes = ref(0)
-const dislikes = ref(0)
-const userVote = ref(null) // null, 'like', 'dislike'
+const likes = ref(props.initialLikes || 0)
+const dislikes = ref(props.initialDislikes || 0)
+const userVote = ref(null)
 
 const LOCAL_STORAGE_LIKES_KEY = `post-${props.postId}-likes`
 const LOCAL_STORAGE_DISLIKES_KEY = `post-${props.postId}-dislikes`
@@ -33,8 +35,8 @@ const loadFromLocalStorage = () => {
   const storedDislikes = localStorage.getItem(LOCAL_STORAGE_DISLIKES_KEY)
   const storedVote = localStorage.getItem(LOCAL_STORAGE_USER_VOTE_KEY)
 
-  likes.value = storedLikes ? parseInt(storedLikes) : 0
-  dislikes.value = storedDislikes ? parseInt(storedDislikes) : 0
+  likes.value = storedLikes ? parseInt(storedLikes) : likes.value
+  dislikes.value = storedDislikes ? parseInt(storedDislikes) : dislikes.value
   userVote.value = storedVote ? storedVote : null
 }
 
@@ -72,7 +74,9 @@ const toggleDislike = () => {
   saveToLocalStorage()
 }
 
-loadFromLocalStorage()
+onMounted(() => {
+  loadFromLocalStorage()
+})
 </script>
 
 <style scoped>

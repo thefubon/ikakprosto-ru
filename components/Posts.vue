@@ -26,7 +26,8 @@
 
           <div class="inline-flex flex-col md:flex-row gap-4">
             <div class="flex gap-2">
-              <Like :post-id="post.id" />
+              <Like :post-id="post.id" :initial-likes="post.reactions.likes"
+                :initial-dislikes="post.reactions.dislikes" />
               <button @click="toggleComments(post.id)" class="text-primary text-sm underline">
                 {{ post.showComments ? 'Close comments' : 'Open comments' }}
               </button>
@@ -68,7 +69,6 @@ const INITIAL_POSTS_COUNT = 5
 const POSTS_BATCH_SIZE = 10
 const postsLoaded = ref(INITIAL_POSTS_COUNT)
 
-// Функция для извлечения тегов из URL-параметра
 const initializeTagsFromQuery = () => {
   const initialTags = route.query.tags
   if (initialTags) {
@@ -79,8 +79,20 @@ const initializeTagsFromQuery = () => {
 const fetchPosts = async () => {
   try {
     const response = await fetch('https://dummyjson.com/posts')
+    if (!response.ok) {
+      throw new Error('Ошибка загрузки данных: ' + response.status)
+    }
     const data = await response.json()
-    posts.value = data.posts.map(post => ({ ...post, showComments: false }))
+
+    posts.value = data.posts.map((post, index) => ({
+      ...post,
+      showComments: false,
+      reactions: {
+        likes: index < INITIAL_POSTS_COUNT ? post.reactions.likes : (localStorage.getItem(`post-${post.id}-likes`) || 0),
+        dislikes: index < INITIAL_POSTS_COUNT ? post.reactions.dislikes : (localStorage.getItem(`post-${post.id}-dislikes`) || 0),
+      }
+    }))
+
     await fetchCommentsCount()
   } catch (err) {
     error.value = err.message
