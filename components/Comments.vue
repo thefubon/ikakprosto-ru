@@ -18,12 +18,11 @@
           <div>
             <strong>{{ comment.user.username }}</strong>
             <p>{{ comment.body }}</p>
-            <button @click="hideComment(comment.id)" class="delete-button">Скрыть</button>
+            <button @click="hideComment(comment.id)" class="delete-button">Delete</button>
           </div>
         </li>
       </ul>
-      <button v-if="hiddenComments.length" @click="restoreComments" class="restore-button">Восстановить все
-        комментарии</button>
+      <button v-if="hiddenComments.length" @click="restoreComments" class="restore-button">Restore All comments</button>
     </div>
   </div>
 </template>
@@ -135,7 +134,7 @@ ul {
 
 /* Вариант на посмотреть как работает с Tailwind CSS */
 .delete-button {
-  @apply text-primary
+  @apply text-primary text-sm underline
 }
 
 .restore-button {
