@@ -8,7 +8,7 @@
             <NuxtImg :src="item.image" alt="Image"
               class="w-full h-auto rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" />
             <div v-if="item.close" class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-              <img src="/public/key.svg" alt="Icon" class="w-8 h-8" />
+              <img src="/key.svg" alt="Icon" class="w-8 h-8" />
             </div>
           </a>
         </template>
@@ -16,7 +16,7 @@
           <p>
             <img :src="item.image" alt="Image" class="w-full h-auto rounded-lg shadow-md">
           <div v-if="item.close" class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <img src="/public/key.svg" alt="Icon" class="w-8 h-8" />
+            <img src="/key.svg" alt="Icon" class="w-8 h-8" />
           </div>
           </p>
         </template>
