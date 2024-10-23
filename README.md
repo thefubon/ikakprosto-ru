@@ -30,6 +30,6 @@ DEMO: https://ikakprosto.fubon.ru
 - [ ] Site (Frontend)
 - [ ] Auth (Prisma, PostgreSQL, Secure, Token)
 - [ ] CMS, Admin (Backand, Frontend)
-- [ ] Posts, Comments, Like (Backand, Frontend)
+- [ ] Pages, Posts, Comments, Like (Backand, Frontend)
 - [ ] Video Playlist (Backand, Frontend)
 - [ ] Buy Pass Content (Backand, Frontend)
