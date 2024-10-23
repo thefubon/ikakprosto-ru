@@ -1,3 +1,5 @@
+![home](https://github.com/user-attachments/assets/45ba7553-bb0d-4f53-986e-8506b5d69d76)
+
 # Сасфликс
 
 DEMO: https://ikakprosto.fubon.ru
