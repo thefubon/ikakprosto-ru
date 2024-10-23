@@ -32,17 +32,8 @@
               </button>
             </div>
 
-            <div class="flex gap-2">
-              <p class="text-black/20">Today</p>
-              <div class="tags-container">
-                <span v-for="tag in post.tags" :key="tag"
-                  :class="['bg-slate-100', 'rounded-md', 'py-0.5', 'px-2', 'cursor-pointer', { 'selected': activeTags.includes(tag) }]"
-                  @click="toggleTagFilter(tag)">
-                  {{ tag }}
-                  <span v-if="activeTags.includes(tag)" class="ml-1 text-red-500">×</span>
-                </span>
-              </div>
-            </div>
+            <!-- Используем компонент Tags -->
+            <Tags :tags="post.tags" :activeTags="activeTags" @toggle-tag="toggleTagFilter" />
           </div>
 
           <div v-if="post.showComments">
@@ -63,6 +54,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import Like from '~/components/Like.vue'
 import Comments from '~/components/Comments.vue'
+import Tags from '~/components/Tags.vue' // Импортируем Tags
 
 const route = useRoute()
 const router = useRouter()
@@ -135,7 +127,7 @@ const postsLoaded = ref(0)
 onMounted(() => {
   fetchPosts()
   postsLoaded.value = POSTS_BATCH_SIZE
-  initializeTagsFromQuery()  // Убедимся, что это вызывается
+  initializeTagsFromQuery()
 })
 
 const generateSlug = (post) => {
@@ -196,24 +188,6 @@ const toggleComments = (postId) => {
   height: 14px;
   border-radius: 4px;
   background-color: #e0e0e0;
-}
-
-.tags-container {
-  display: flex;
-  gap: 5px;
-}
-
-.tag {
-  background-color: #e0e0e0;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  cursor: pointer;
-  position: relative;
-}
-
-.tag.selected {
-  background-color: #c1d9ff;
 }
 
 .reset-button {
