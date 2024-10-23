@@ -26,4 +26,4 @@ DEMO: https://ikakprosto.fubon.ru
 
 ### Дорожная карта
 
-[X] Base (localStorage)
+- [x] Base (localStorage)
