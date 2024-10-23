@@ -34,3 +34,5 @@ DEMO: https://ikakprosto.fubon.ru
 - [ ] Video Playlist (Backand, API Sasflix, Frontend)
 - [ ] Buy Pass Content (Backand, Frontend)
 - [ ] PWA (Frontend)
+
+&copy; Sasflix 22.10.2024
